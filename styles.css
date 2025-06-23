@@ -144,6 +144,85 @@ h1, h2, h3 {
 }
 
 /* -------------------------------------------
+   PRICING / EARLY ACCESS
+------------------------------------------- */
+.pricing {
+  position: relative;
+  padding: 4rem 0 3rem;
+  text-align: center;
+}
+.pricing::before {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(124,58,237,0.3), transparent 75%);
+  filter: blur(120px);
+  z-index: 0;
+}
+.pricing .container {
+  position: relative;
+  z-index: 1;
+}
+.pricing-pill {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.75rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.5);
+  color: #fff;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.pricing h2 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+.pricing-subtitle {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 1.5rem;
+}
+.price-block {
+  margin: 1.5rem 0;
+}
+.price {
+  font-size: 3.5rem;
+  color: #D8B4FE;
+}
+.price-note {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.75);
+}
+.pricing-features {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.pricing-features ul {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+}
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  margin: 0.75rem 0;
+}
+.pricing-features li i {
+  color: #A855F7;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+.pricing-button {
+  margin-top: 1rem;
+}
+
+/* -------------------------------------------
    FEATURES (4×2 GRID + DIVIDERS)
 ------------------------------------------- */
 .features {
@@ -386,6 +465,9 @@ section.visible {
   .capabilities-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .pricing-features {
+    gap: 2rem;
+  }
 }
 @media (max-width: 768px) {
   .hero-content h1 {
@@ -401,6 +483,10 @@ section.visible {
   .feature-grid,
   .capabilities-grid {
     grid-template-columns: 1fr;
+  }
+  .pricing-features {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
