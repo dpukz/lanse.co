@@ -1,302 +1,266 @@
-/* Base styles and resets */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  height: 100%;
-  background: #000;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-}
-a {
-  color: #fff;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-}
-p {
-  line-height: 1.6;
+/* -------------------------------------------
+   Base Reset & Typography
+------------------------------------------- */
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; font-family:'Inter',sans-serif; }
+body { background:#000; color:#fff; line-height:1.5; overflow-x:hidden; }
+a { color:inherit; text-decoration:none; }
+h1,h2,h3 { font-weight:600; }
+
+/* -------------------------------------------
+   Utility Container
+------------------------------------------- */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-/* Navigation Bar */
+/* -------------------------------------------
+   NAVBAR (height, spacing, glassmorphic)
+------------------------------------------- */
 .navbar {
   position: fixed;
-  top: 0;
-  width: 100%;
+  top: 0; left: 0; right: 0;
+  height: 72px;                /* match Reflect */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.1);  /* translucent white */
-  backdrop-filter: blur(10px);           /* blur for glass effect */
+  padding: 0 2rem;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(20px);
   z-index: 1000;
 }
-.navbar .logo {
+
+/* Logo */
+.logo {
   font-size: 1.25rem;
-  font-weight: 600;
-}
-.nav-links a {
-  margin: 0 1rem;
-}
-.nav-links a.active {
-  text-decoration: underline;
-}
-.early-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #fff;
-  border-radius: 4px;
-  font-weight: 500;
-}
-.early-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.5px;
+  font-weight:700;
 }
 
-/* Hero Section */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 5rem 2rem;
-  min-height: 100vh;
-  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.8), #000);
+/* Center Links */
+.nav-center {
+  display:flex;
+  gap:2rem;                     /* spacing between links */
+  list-style:none;
+}
+.nav-center li a {
+  font-size: 1rem;
+  padding:0.25rem 0;
   position: relative;
-  overflow: hidden;
 }
-/* Animated background for hero using a pseudo-element */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(270deg, #ff0080, #ff8c00, #40e0d0, #8a2be2);
-  background-size: 800% 800%;
-  animation: gradientBG 20s ease infinite;
-  opacity: 0.3;
-  z-index: 0;
+.nav-center li a::after {
+  content:'';
+  position:absolute;
+  left:0; right:0; bottom:-4px;
+  height:2px;
+  background:#fff;
+  opacity:0;
+  transition: opacity .2s;
 }
-@keyframes gradientBG {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.nav-center li a:hover::after,
+.nav-center li a.active::after {
+  opacity:1;
 }
-.hero-content {
-  position: relative;
-  z-index: 1;  /* put content above the ::before background */
-  max-width: 800px;
-}
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.hero .subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: #ddd;
-}
+
+/* Right Buttons */
+.nav-right { display:flex; gap:1rem; }
 .btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: #ffffff22;      /* semi-transparent button */
-  color: #fff;
-  border: 1px solid #ffffff88;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
+  display:inline-block;
+  font-size:0.95rem;
+  font-weight:600;
+  padding:0.5rem 1.25rem;
+  border-radius:6px;
+  cursor:pointer;
+  transition: background .2s, opacity .2s;
 }
-.btn:hover {
-  background: #ffffff44;
+.login-btn {
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.5);
 }
+.login-btn:hover { background:rgba(255,255,255,0.1); }
 .primary-btn {
-  background: #007bff; /* Primary accent color (blue) */
-  border: none;
+  background:#7C3AED;           /* Reflect’s purple */
+  border:none;
 }
-.primary-btn:hover {
-  background: #0056b3;
+.primary-btn:hover { opacity:0.85; }
+
+/* -------------------------------------------
+   HERO (full-screen, black-hole gradient)
+------------------------------------------- */
+.hero {
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  height:100vh;
+  overflow:hidden;
+  padding-top:72px;            /* offset nav */
 }
 
-/* Features Section */
+/* animated gradient behind everything */
+.hero-bg {
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: radial-gradient(circle at 50% 60%,
+    #7C3AED 0%, #000 40%, #000 100%);
+  background-size:200% 200%;
+  animation: swirl 30s ease infinite;
+  mix-blend-mode:screen;
+  filter:brightness(1.2);
+  z-index:0;
+}
+@keyframes swirl {
+  0%   { background-position:0% 50%; }
+  50%  { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+
+/* Hero text */
+.hero-content {
+  position:relative;
+  z-index:1;
+  max-width:600px;
+}
+.pill {
+  display:inline-block;
+  font-size:0.85rem;
+  font-weight:600;
+  padding:0.25rem 0.75rem;
+  border-radius:12px;
+  margin-bottom:1rem;
+  background:#fff; color:#7C3AED;
+  letter-spacing:0.5px;
+}
+.hero-content h1 {
+  font-size:3.25rem;
+  margin-bottom:0.75rem;
+  line-height:1.1;
+}
+.subtitle {
+  font-size:1.1rem;
+  color:rgba(255,255,255,0.75);
+  margin-bottom:2rem;
+}
+
+/* -------------------------------------------
+   FEATURES (glassmorphic cards)
+------------------------------------------- */
 .features {
-  padding: 4rem 2rem;
-  text-align: center;
+  padding:6rem 0 4rem;
+  text-align:center;
 }
 .features h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size:2.25rem;
+  margin-bottom:2rem;
 }
 .feature-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:1.5rem;
 }
 .feature-item {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(5px);
-  padding: 2rem;
-  border-radius: 8px;
-  width: 250px;
-  text-align: center;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  padding:2rem;
+  border-radius:12px;
+  transition: transform .2s;
+}
+.feature-item:hover {
+  transform:translateY(-4px);
 }
 .feature-item i {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  display: block;
+  font-size:1.75rem;
+  margin-bottom:1rem;
+  color:#A855F7;
 }
 .feature-item h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom:0.5rem;
+  font-size:1.25rem;
 }
 .feature-item p {
-  font-size: 0.95rem;
-  color: #ddd;
+  font-size:0.95rem;
+  color:rgba(255,255,255,0.75);
 }
 
-/* Early Access Section */
+/* -------------------------------------------
+   EARLY ACCESS
+------------------------------------------- */
 .early-access {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: linear-gradient(135deg, #111, #000);
+  padding:4rem 0;
+  background:#08080A;
+  text-align:center;
 }
 .early-access h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size:2rem;
+  margin-bottom:1rem;
 }
 .early-access p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom:1.5rem;
+  color:rgba(255,255,255,0.8);
 }
 .early-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  display:flex; justify-content:center; flex-wrap:wrap; gap:0.5rem;
 }
-.early-form input[type=email] {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  flex: 1 1 250px;
+.early-form input {
+  padding:0.75rem 1rem;
+  font-size:1rem;
+  border:none;
+  border-radius:8px;
+  flex:1 1 280px;
 }
 .early-form button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  border: none;
+  padding:0.75rem 1.5rem;
+  font-size:1rem;
+  border-radius:8px;
 }
 .form-note {
-  font-size: 0.875rem;
-  color: #888;
+  margin-top:0.75rem;
+  font-size:0.85rem;
+  color:rgba(255,255,255,0.5);
 }
 
-/* Page Content (Team, Blog, Contact pages) */
-.page-content {
-  padding: 6rem 2rem 4rem;  /* extra top padding to account for fixed nav */
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-.page-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-.page-content p {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-.team-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-}
-.team-member h3 {
-  font-size: 1.5rem;
-}
-.team-member p {
-  font-size: 1rem;
-  color: #ccc;
-}
-.blog-list {
-  text-align: left;
-}
-.blog-post {
-  background: rgba(255,255,255,0.05);
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-}
-.blog-post h2 {
-  font-size: 1.5rem;
-}
-.blog-post .post-date {
-  font-size: 0.9rem;
-  color: #aaa;
-}
-.blog-post .post-excerpt {
-  font-size: 1rem;
-  color: #ccc;
-}
-
-/* Footer */
+/* -------------------------------------------
+   FOOTER
+------------------------------------------- */
 .footer {
-  text-align: center;
-  padding: 2rem;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(5px);
-  margin-top: 2rem;
+  padding:3rem 0;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
 }
-.footer .footer-links a {
-  margin: 0 1rem;
-  font-size: 0.9rem;
-  color: #ccc;
+.footer-nav {
+  display:flex; justify-content:center; gap:2rem; margin-bottom:1rem;
+  list-style:none;
 }
-.footer .footer-links a:hover {
-  color: #fff;
+.footer-nav a {
+  font-size:0.9rem;
+  color:rgba(255,255,255,0.75);
 }
+.footer-nav a:hover { color:#fff; }
 .footer .copyright {
-  font-size: 0.8rem;
-  color: #555;
-  margin-top: 0.5rem;
+  font-size:0.8rem;
+  color:rgba(255,255,255,0.5);
 }
 
-/* Reveal Animations for Sections on Scroll */
+/* -------------------------------------------
+   Scroll-Reveal (same as before)
+------------------------------------------- */
 section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity:0; transform:translateY(20px);
+  transition:opacity .6s ease, transform .6s ease;
 }
 section.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity:1; transform:translateY(0);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 600px) {
-  .feature-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .nav-links {
-    margin-top: 0.5rem;
-  }
-  .nav-links a {
-    display: inline-block;
-    margin: 0 0.5rem 0.5rem 0;
-  }
+/* -------------------------------------------
+   Responsive tweaks
+------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-content h1 { font-size:2.5rem; }
+  .navbar { padding:0 1rem; height:64px; }
+  .nav-center { gap:1rem; }
+  .container { padding:0 1rem; }
 }
