@@ -115,6 +115,52 @@ h1,h2,h3 { font-weight:600; }
   color: rgba(255,255,255,0.75);
   margin-bottom: 2rem;
 }
+/* ----------------------------------------------------
+   HERO VIDEO STYLING
+---------------------------------------------------- */
+.hero-video-wrapper {
+  position: relative;
+  margin: 2.5rem auto 0;
+  max-width: 1150px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 60px rgba(124,58,237,0.4);
+}
+
+.hero-video-wrapper video {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Play-button overlay */
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* let clicks go to the video element */
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.video-overlay i {
+  font-size: 4rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* On hover, highlight the icon a bit */
+.hero-video-wrapper:hover .video-overlay {
+  opacity: 1;
+}
+
+/* Hide overlay once playing */
+.hero-video-wrapper.playing .video-overlay {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
 
 /* -------------------------------------------
    FEATURES (4×2 GRID + DIVIDERS)

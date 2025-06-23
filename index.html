@@ -31,14 +31,31 @@
 
   <!-- HERO -->
   <section class="hero">
+    <!-- animated background is on <body> now, so nothing needed here -->
+
     <div class="hero-content container">
       <span class="pill">Try Lanse AI Co-Pilot</span>
       <h1>An AI Co-Pilot for Every Car</h1>
       <p class="subtitle">
         Advanced driver assistance that works with the car you already own.
       </p>
+
+      <!-- VIDEO CONTAINER -->
+      <div class="hero-video-wrapper">
+        <video
+          id="hero-video"
+          src="lansevid.mp4"
+          poster="lanse-poster.png"
+          playsinline
+          preload="metadata"
+        ></video>
+        <div class="video-overlay" id="video-overlay">
+          <i class="bi bi-play-circle-fill"></i>
+        </div>
+      </div>
     </div>
   </section>
+
 
   <!-- FEATURES (8 items, 4×2 grid with dividers) -->
   <section class="features">

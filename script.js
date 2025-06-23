@@ -23,3 +23,25 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('section').forEach(sec => sec.classList.add('visible'));
   }
 });
+
+// Hero video play overlay logic
+document.addEventListener('DOMContentLoaded', () => {
+  const wrapper = document.querySelector('.hero-video-wrapper');
+  const video   = document.getElementById('hero-video');
+
+  // on click anywhere in wrapper, play/pause
+  wrapper.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+      wrapper.classList.add('playing');
+    } else {
+      video.pause();
+      wrapper.classList.remove('playing');
+    }
+  });
+
+  // when video ends, show the overlay again
+  video.addEventListener('ended', () => {
+    wrapper.classList.remove('playing');
+  });
+});
