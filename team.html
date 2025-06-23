@@ -2,48 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lanse.ai – Our Team</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap">
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>lanse.ai – Our Team</title>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"/>
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+  <!-- NAVBAR (same as on Home) -->
   <header class="navbar">
-    <div class="logo">lanse.ai</div>
-    <nav class="nav-links">
+    <div class="nav-left">
+      <span class="logo">lanse.ai</span>
+    </div>
+    <nav class="nav-center">
       <a href="index.html">Home</a>
       <a href="team.html" class="active">Team</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a href="index.html#early-access" class="btn early-btn">Early Access</a>
+    <div class="nav-right">
+      <a href="index.html#early-access" class="btn primary-btn">Get Early Access</a>
+    </div>
   </header>
-  
-  <main class="page-content">
-    <h1>Our Team</h1>
-    <p>We are a team of engineers, designers, and innovators dedicated to making driving safer and more enjoyable. <!-- More team info can be added here --></p>
-    <div class="team-list">
-      <!-- Example team members (replace with actual team details) -->
-      <div class="team-member">
-        <h3>Alex Smith</h3>
-        <p>Founder & CEO</p>
-      </div>
-      <div class="team-member">
-        <h3>Jamie Lee</h3>
-        <p>CTO & Lead Engineer</p>
-      </div>
-      <!-- Add more team-member blocks as needed -->
+
+  <!-- TEAM HERO -->
+  <section class="team-hero">
+    <div class="container">
+      <h1>Meet the Team</h1>
+      <p>Driving innovation in ADAS with passion and expertise.</p>
     </div>
-  </main>
-  
+  </section>
+
+  <!-- TEAM GRID -->
+  <section class="team-section">
+    <div class="container">
+      <div class="team-grid">
+        <div class="team-card">
+          <i class="bi bi-person-badge-fill"></i>
+          <h3>Jeremy Liu</h3>
+          <p>Founder &amp; CEO</p>
+        </div>
+        <div class="team-card">
+          <i class="bi bi-code-slash"></i>
+          <h3>Santana M.</h3>
+          <p>Software Engineer</p>
+        </div>
+        <div class="team-card">
+          <i class="bi bi-code-slash"></i>
+          <h3>Lior P.</h3>
+          <p>Software Engineer</p>
+        </div>
+        <div class="team-card">
+          <i class="bi bi-person-rolodex"></i>
+          <h3>Archit W.</h3>
+          <p>Software Engineering Advisor</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (same as on Home) -->
   <footer class="footer">
-    <div class="footer-links">
-      <a href="team.html">Team</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+    <div class="container">
+      <nav class="footer-nav">
+        <a href="team.html">Team</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="copyright">&copy; 2025 Lanse.ai — All rights reserved.</p>
     </div>
-    <p class="copyright">&copy; 2025 Lanse, Inc. All rights reserved.</p>
   </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
 </body>
 </html>
