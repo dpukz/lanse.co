@@ -2,45 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lanse.ai – Blog</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap">
-  <link rel="stylesheet" href="styles.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+  <div class="custom-cursor"></div>
+
   <header class="navbar">
-    <div class="logo">lanse.ai</div>
-    <nav class="nav-links">
+    <div class="nav-left"><span class="logo">lanse.ai</span></div>
+    <nav class="nav-center">
       <a href="index.html">Home</a>
       <a href="team.html">Team</a>
       <a href="blog.html" class="active">Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a href="index.html#early-access" class="btn early-btn">Early Access</a>
+    <div class="nav-right">
+      <a href="index.html#early-access" class="btn primary-btn">Get early access</a>
+    </div>
   </header>
-  
-  <main class="page-content">
-    <h1>Blog</h1>
-    <p>Stay tuned for updates and insights. Our blog will feature the latest news about Lanse and our journey in autonomous driving.</p>
-    <div class="blog-list">
-      <!-- Example placeholder blog post -->
-      <article class="blog-post">
-        <h2>Coming Soon: Lanse's Journey Begins</h2>
-        <p class="post-date">July 1, 2025</p>
-        <p class="post-excerpt">Welcome to the Lanse blog. We will be sharing development updates, industry insights, and behind-the-scenes stories here. Stay tuned!</p>
-      </article>
-      <!-- Future blog posts can be added similarly -->
+
+  <section class="team-hero">
+    <div class="container">
+      <h1>Our Blog</h1>
+      <p>News, updates, and insights from the Lanse team.</p>
     </div>
-  </main>
-  
+  </section>
+
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-grid">
+        <article class="blog-card">
+          <h3>Introducing LanesenseAI v1.0</h3>
+          <p>Our first open-source ADAS release is here—meet the features and roadmap.</p>
+          <a href="#" class="read-more">Read more →</a>
+        </article>
+        <article class="blog-card">
+          <h3>How We Built Our Black-Hole UI</h3>
+          <p>An inside look at the interactive hero animations on lanse.ai.</p>
+          <a href="#" class="read-more">Read more →</a>
+        </article>
+        <!-- Add more posts as needed -->
+      </div>
+    </div>
+  </section>
+
   <footer class="footer">
-    <div class="footer-links">
-      <a href="team.html">Team</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+    <div class="container">
+      <nav class="footer-nav">
+        <a href="team.html">Team</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="copyright">&copy; 2025 Lanse.ai — All rights reserved.</p>
     </div>
-    <p class="copyright">&copy; 2025 Lanse, Inc. All rights reserved.</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

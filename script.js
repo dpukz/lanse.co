@@ -1,44 +1,51 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // 1) Scroll-reveal setup
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-  const revealOnIntersect = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  };
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll-reveal
   const observer = ('IntersectionObserver' in window)
-    ? new IntersectionObserver(revealOnIntersect, observerOptions)
+    ? new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 })
     : null;
 
   if (observer) {
-    document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+    document.querySelectorAll('section').forEach(s => observer.observe(s));
   } else {
-    // Fallback: show all immediately
-    document.querySelectorAll('section').forEach(sec => sec.classList.add('visible'));
+    document.querySelectorAll('section').forEach(s => s.classList.add('visible'));
   }
 
-  // 2) Video play/pause overlay
-  const wrapper = document.querySelector('.hero-video-wrapper');
-  const video   = document.getElementById('assistant-video');
-  if (wrapper && video) {
-    wrapper.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-        wrapper.classList.add('playing');
+  // Custom cursor movement
+  const cursor = document.querySelector('.custom-cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+
+  // Hero black-hole follow
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    hero.addEventListener('mousemove', e => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100 + '%';
+      const y = ((e.clientY - rect.top) / rect.height) * 100 + '%';
+      hero.style.setProperty('--cursor-x', x);
+      hero.style.setProperty('--cursor-y', y);
+    });
+  }
+
+  // Video play/pause overlay
+  const wrap = document.querySelector('.hero-video-wrapper');
+  const vid  = document.getElementById('assistant-video');
+  if (wrap && vid) {
+    wrap.addEventListener('click', () => {
+      if (vid.paused) {
+        vid.play(); wrap.classList.add('playing');
       } else {
-        video.pause();
-        wrapper.classList.remove('playing');
+        vid.pause(); wrap.classList.remove('playing');
       }
     });
-    video.addEventListener('ended', () => {
-      wrapper.classList.remove('playing');
-    });
+    vid.addEventListener('ended', () => wrap.classList.remove('playing'));
   }
 });
