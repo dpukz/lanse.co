@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"/>
-  <!-- Main CSS -->
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -31,33 +31,16 @@
 
   <!-- HERO -->
   <section class="hero">
-    <!-- animated background is on <body> now, so nothing needed here -->
-
     <div class="hero-content container">
       <span class="pill">Try Lanse AI Co-Pilot</span>
       <h1>An AI Co-Pilot for Every Car</h1>
       <p class="subtitle">
         Advanced driver assistance that works with the car you already own.
       </p>
-
-      <!-- VIDEO CONTAINER -->
-      <div class="hero-video-wrapper">
-        <video
-          id="hero-video"
-          src="lansevid.mp4"
-          poster="lanse-poster.png"
-          playsinline
-          preload="metadata"
-        ></video>
-        <div class="video-overlay" id="video-overlay">
-          <i class="bi bi-play-circle-fill"></i>
-        </div>
-      </div>
     </div>
   </section>
 
-
-  <!-- FEATURES (8 items, 4×2 grid with dividers) -->
+  <!-- KEY FEATURES -->
   <section class="features">
     <div class="container">
       <h2>Key Features</h2>
@@ -93,14 +76,81 @@
           <p>Detects drowsiness or distraction in real time.</p>
         </div>
         <div class="feature-item">
-          <i class="bi bi-night-fill"></i>
+          <i class="bi bi-moon-fill"></i>
           <h3>Night Vision</h3>
           <p>Enhanced low-light object detection.</p>
         </div>
         <div class="feature-item">
-          <i class="bi bi-award-fill"></i>
-          <h3>High-Performance</h3>
-          <p>Optimized for minimal latency and max reliability.</p>
+          <i class="bi bi-gear-fill"></i>
+          <h3>Edge-Optimized Hardware</h3>
+          <p>Runs smoothly on Jetson Nano & Android with sub-50 ms latency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADAS POWERED BY lanesenseAI (Intro + Video) -->
+  <section class="ai-assistant">
+    <div class="container">
+      <h2>ADAS Powered by lanesenseAI</h2>
+      <p>
+        lanesenseAI is our open-source ADAS engine—combining YOLOP’s real-time perception,
+        HybridNet path prediction, and MiDaS depth—to bring Level-2 autonomy to almost any car.
+      </p>
+      <div class="hero-video-wrapper">
+        <video
+          id="assistant-video"
+          src="lansevid.mp4"
+          poster="lanse-poster.png"
+          playsinline
+          preload="metadata">
+        </video>
+        <div class="video-overlay">
+          <i class="bi bi-play-circle-fill"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT CAN YOU DO WITH lanesenseAI? -->
+  <section class="ai-capabilities">
+    <div class="container">
+      <h2>What Can You Do with lanesenseAI?</h2>
+      <div class="feature-grid capabilities-grid">
+        <div class="feature-item">
+          <i class="bi bi-camera-video-fill"></i>
+          <h3>Real-Time Lane Detection</h3>
+          <p>
+            Robust lane & edge detection at 30 FPS using YOLOP, even in rain or glare.
+          </p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-signpost-split-fill"></i>
+          <h3>Predictive Path Planning</h3>
+          <p>
+            HybridNet-powered trajectory forecasting for smooth, safe steering.
+          </p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-phone-fill"></i>
+          <h3>Cross-Platform Deployment</h3>
+          <p>
+            Runs out of the box on Jetson Nano, Android phones, and most Linux boards.
+          </p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-cloud-arrow-up-fill"></i>
+          <h3>Seamless OTA Model Updates</h3>
+          <p>
+            Deliver updated neural nets and features without a trip to the shop.
+          </p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-bar-chart-fill"></i>
+          <h3>Data Logging & Analytics</h3>
+          <p>
+            Collect driving metrics and generate insights with built-in visualization tools.
+          </p>
         </div>
       </div>
     </div>
@@ -131,6 +181,7 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
