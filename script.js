@@ -14,40 +14,60 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   animateCursor();
 
-  // THREE.JS 3D HERO ART
+  // THREE.JS 3D HERO ART (REFINED)
   const canvas = document.getElementById('hero-3d');
-  const scene = new THREE.Scene();
+  const scene  = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 1000);
-  camera.position.z = 2.5;
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
+  camera.position.z = 3;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
 
-  const geometry = new THREE.TorusKnotGeometry(0.6, 0.2, 100, 16);
-  const material = new THREE.MeshStandardMaterial({
-    color: 0x8b5cf6,
-    emissive: 0x8b5cf6,
-    emissiveIntensity: 0.7,
-    roughness: 0.5,
-    metalness: 0.2
+  // High-poly TorusKnot + Physical material for that liquid-glass vibe
+  const geometry = new THREE.TorusKnotGeometry(
+    /* radius */      0.6,
+    /* tube */        0.12,
+    /* tubularSegments */  400,
+    /* radialSegments */    128
+  );
+
+  const material = new THREE.MeshPhysicalMaterial({
+    color: 0x9d4edd,             // base purple
+    emissive: 0x6d28d9,          // subtle glow
+    emissiveIntensity: 0.3,
+    metalness: 0.8,
+    roughness: 0.05,
+    clearcoat: 1.0,
+    clearcoatRoughness: 0.1,
+    reflectivity: 0.9
   });
+
   const knot = new THREE.Mesh(geometry, material);
   scene.add(knot);
 
-  const light1 = new THREE.PointLight(0xffffff, 0.8);
-  light1.position.set(5,5,5);
-  scene.add(light1);
-  const light2 = new THREE.AmbientLight(0x444444);
-  scene.add(light2);
+  // Lighting
+  const keyLight = new THREE.PointLight(0xffffff, 1.0);
+  keyLight.position.set(5, 5, 5);
+  scene.add(keyLight);
 
+  const fillLight = new THREE.PointLight(0xffffff, 0.4);
+  fillLight.position.set(-3, -2, 2);
+  scene.add(fillLight);
+
+  const ambient = new THREE.AmbientLight(0x222222);
+  scene.add(ambient);
+
+  // Handle resize
   window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 
+  // Animate
   function animate3D() {
-    knot.rotation.x += 0.005;
-    knot.rotation.y += 0.007;
+    knot.rotation.x += 0.003;
+    knot.rotation.y += 0.005;
     renderer.render(scene, camera);
     requestAnimationFrame(animate3D);
   }
@@ -64,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }, { threshold: 0.1 })
     : null;
+
   if (observer) {
     document.querySelectorAll('section').forEach(s => observer.observe(s));
   } else {
