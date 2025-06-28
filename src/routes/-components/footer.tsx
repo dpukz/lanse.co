@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                     <div className="col-span-2 md:col-span-1">
-                        <h3 className="text-xl font-bold">Lanesense</h3>
+                        <h3 className="text-xl font-bold">Lanse</h3>
                         <p className="text-white/60 mt-2 text-sm">
                             Open-source Level 2 autonomy for the real world.
                         </p>
@@ -19,17 +19,21 @@ export default function Footer() {
                         <ul className="mt-4 space-y-2">
                             <li><Link to="/" className="text-sm text-white/60 hover:text-white transition-colors">Home</Link></li>
                             <li>
-                                <button
-                                    onClick={() => {
-                                        const element = document.getElementById('early-access');
-                                        if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
+                                <Link
+                                    to="/#early-access"
+                                    className="text-sm text-white/60 hover:text-white transition-colors cursor-pointer"
+                                    onClick={(e) => {
+                                        if (window.location.pathname === "/") {
+                                            e.preventDefault();
+                                            const element = document.getElementById('early-access');
+                                            if (element) {
+                                                element.scrollIntoView({ behavior: 'smooth' });
+                                            }
                                         }
                                     }}
-                                    className="text-sm text-white/60 hover:text-white transition-colors cursor-pointer"
                                 >
                                     Early Access
-                                </button>
+                                </Link>
                             </li>
                             <li><Link to="about" className="text-sm text-white/60 hover:text-white transition-colors">About</Link></li>
                             <li><Link to="blog" className="text-sm text-white/60 hover:text-white transition-colors">Blog</Link></li>
@@ -54,7 +58,7 @@ export default function Footer() {
                 </div>
 
                 <div className="mt-16 border-t border-white/10 pt-8 text-center text-sm text-white/50">
-                    <p>&copy; {new Date().getFullYear()} LanesenseAI. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Lanse. All rights reserved.</p>
                 </div>
             </div>
         </footer>

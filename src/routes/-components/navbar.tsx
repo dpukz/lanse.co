@@ -5,7 +5,6 @@ export default function FrostedNavbar() {
   const navItems = [
     { name: "About", href: "about" },
     { name: "Blog", href: "blog" },
-    { name: "Contact", href: "contact" },
   ]
 
   return (

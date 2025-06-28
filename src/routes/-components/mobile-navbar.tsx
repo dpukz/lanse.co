@@ -95,11 +95,15 @@ export default function MobileNavbar({ navItems }: {
 
                     <motion.div
                         variants={linkVariants}
-                        onClick={() => {
+                        onClick={async () => {
                             toggleNav();
-                            const element = document.getElementById('early-access');
-                            if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' });
+                            if (window.location.pathname !== "/") {
+                                window.location.href = "/#early-access";
+                            } else {
+                                const element = document.getElementById('early-access');
+                                if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' });
+                                }
                             }
                         }}
                         className="cursor-pointer mt-8"
