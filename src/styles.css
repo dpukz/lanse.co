@@ -35,7 +35,7 @@
 
 html,
 body {
-	@apply h-full overflow-x-hidden min-h-screen font-inter;
+	@apply h-full overflow-x-hidden min-h-screen font-inter bg-black;
 }
 
 .glass {
@@ -72,4 +72,18 @@ body {
 
 .animation-delay-2000 {
 	animation-delay: 2000ms;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 99px;
+}
+::-webkit-scrollbar-track {
+	background: inherit;
 }
