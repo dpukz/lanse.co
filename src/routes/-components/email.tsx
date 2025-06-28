@@ -10,7 +10,6 @@ import {
     getAuth,
     signInAnonymously,
 } from 'firebase/auth';
-import { Mail } from 'lucide-react';
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -76,9 +75,9 @@ export default function Email() {
     };
 
     return (
-        <section id='early-access' className="py-24 sm:py-32 relative">
+        <section id='early-access' className="py-24 sm:py-32 sm:pb-40 relative">
+            <div className="absolute top-1/6 left-1/10 md:left-1/3 w-4/5 md:w-1/3 h-2/3 rounded-full bg-purple-500/15 blur-3xl"></div>
             <div className="max-w-7xl mx-auto px-4 text-center z-10 relative">
-                <Mail size={48} className="mx-auto text-purple-400 mb-4" />
                 <h2 className="text-4xl font-bold text-white mb-4">Get Early Access</h2>
                 <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
                     Sign up now to be among the first to test our open-source ADAS engine and help shape the future of driving.
@@ -95,7 +94,7 @@ export default function Email() {
                     />
                     <button
                         type="submit"
-                        className="px-4 py-2 font-semibold rounded-md bg-purple-400 hover:bg-purple-500 disabled:bg-gray-600 transition-colors duration-300"
+                        className="px-4 py-2 font-semibold rounded-md bg-purple-400 hover:bg-purple-400/80 disabled:bg-gray-600 transition-colors duration-300 hover:cursor-pointer"
                         disabled={status === 'loading'}
                     >
                         {status === 'loading' ? 'Submitting…' : 'Notify Me'}
@@ -110,7 +109,6 @@ export default function Email() {
                     We respect your privacy and will only send product updates.
                 </p>
             </div>
-            <div className="absolute top-1/6 left-1/10 md:left-1/3 w-4/5 md:w-1/3 h-2/3 rounded-full bg-purple-500/20 blur-3xl"></div>
         </section>
     );
 }

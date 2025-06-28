@@ -84,7 +84,8 @@ export function Hero3D() {
             globeGroup.add(ring);
         }
 
-        const globeScale = window.innerWidth < 768 ? 0.7 : 0.9;
+        // const globeScale = window.innerWidth < 768 ? 0.7 : 0.9;
+        const globeScale = 0.9;
         globeGroup.scale.set(globeScale, globeScale, globeScale);
         scene.add(globeGroup);
 
