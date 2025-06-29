@@ -130,7 +130,7 @@ export default function MobileNavbar({ navItems }: {
                             onClick={() => toggleNav()}
                             variants={linkVariants}
                         >
-                            <Link to={item.href} className="hover:text-purple-300 transition-colors">
+                            <Link resetScroll={false} to={item.href} className="hover:text-purple-300 transition-colors">
                                 {item.name}
                             </Link>
                         </motion.div>

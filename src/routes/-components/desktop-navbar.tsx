@@ -11,7 +11,7 @@ export default function DesktopNavbar({ navItems }: {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-rows-1 grid-cols-3 items-center justify-center h-16">
                     <div className="flex items-center">
-                        <Link to="/" className="text-white font-semibold flex items-center space-x-2">
+                        <Link resetScroll={false} to="/" className="text-white font-semibold flex items-center space-x-2">
                             <img src="/logo.png" alt="Lanse Logo" className="size-10" />
                         </Link>
                     </div>
@@ -19,6 +19,7 @@ export default function DesktopNavbar({ navItems }: {
                     <div className="flex items-center space-x-8 justify-center">
                         {navItems.map((item) => (
                             <Link
+                                resetScroll={false}
                                 key={item.name}
                                 to={item.href}
                                 className="text-white/80 hover:text-white transition-colors duration-200 text-md font-medium"
