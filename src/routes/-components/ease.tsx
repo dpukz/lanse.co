@@ -30,14 +30,14 @@ export default function Ease() {
                     <div className="absolute top-12 left-0 w-full h-0.5 bg-white/10 hidden md:block"></div>
                     {steps.map((step, index) => (
                         <div key={index} className="relative text-center">
-                            <div className="absolute inset-0 bg-purple-500/15 blur-lg rounded-full scale-90 opacity-40 w-1/2 mx-auto"></div>
+                            <div className="absolute inset-0 bg-purple-500/15 blur-lg rounded-full scale-90 opacity-40 w-1/3 h-1/2 mx-auto bottom-1/5"></div>
                             <div className="glass relative inline-flex bg-neutral-900 bg-opacity-80 backdrop-blur-sm border border-white/10 !rounded-full after:!rounded-full p-4 mb-4">
                                 <div className="bg-purple-500/0 text-purple-300/30 rounded-full p-3">
                                     <step.icon size={32} className=" text-purple-400/80" />
                                 </div>
                             </div>
-                            <h3 className="font-semibold text-xl mb-2">{step.title}</h3>
-                            <p className="text-white/60 max-w-xs mx-auto">{step.description}</p>
+                            <h3 className="relative font-semibold text-xl mb-2">{step.title}</h3>
+                            <p className="relative text-white/60 max-w-xs mx-auto">{step.description}</p>
                         </div>
                     ))}
                 </div>

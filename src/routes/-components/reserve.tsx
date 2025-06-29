@@ -2,7 +2,7 @@ import { CheckCircle } from 'lucide-react';
 
 function Reserve() {
     return (
-        <section className='relative p-8 text-center'>
+        <section className='relative p-8 my-24 text-center'>
             <div className='container relative z-10 mx-auto'>
                 <div className='bg-white/5 text-white backdrop-blur border border-white/20 rounded-2xl p-8 py-12 max-w-3xl mx-auto'>
                     <h2 className='text-4xl font-semibold mb-4 tracking-wide'>

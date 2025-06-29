@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Plus } from "lucide-react"
 import { Button } from "./btn"
 import { Link } from "@tanstack/react-router"
 
@@ -59,18 +58,62 @@ export default function MobileNavbar({ navItems }: {
 
     return (
         <>
-            <header className="md:hidden sticky top-0 z-50 flex w-full flex-row items-center justify-between bg-white/5 backdrop-blur-md border-b border-white/20 px-4 py-3">
+            <header className="md:hidden sticky top-0 z-50 flex w-full flex-row items-center justify-between backdrop-blur-md border-b border-white/20 px-4 py-3">
                 <MotionHash href="/#" className="flex items-center space-x-2 text-white" onClick={() => (isOpen ? toggleNav() : null)}>
-                    lanse.ai
+                    <img src="/logo.png" alt="Lanse Logo" className="size-8" />
                 </MotionHash>
 
                 <motion.div
                     variants={iconVariants}
                     animate={isOpen ? "opened" : "closed"}
                     onClick={() => toggleNav()}
-                    className="z-50 flex cursor-pointer items-center justify-center rounded-full p-2 hover:bg-white/10 transition-colors"
+                    className="z-50 flex cursor-pointer items-center justify-center rounded-full p-2 hover:bg-white/5 transition-colors"
                 >
-                    <Plus className="text-2xl font-black text-white" />
+                    <motion.div
+                        initial={false}
+                        animate={isOpen ? "opened" : "closed"}
+                        style={{ width: 24, height: 24, position: "relative" }}
+                    >
+                        <motion.span
+                            style={{
+                                position: "absolute",
+                                left: 0,
+                                width: 24,
+                                height: 3,
+                                borderRadius: 2,
+                                background: "white",
+                                display: "block",
+                            }}
+                            animate={isOpen ? { rotate: 90, top: 10.5, left: 0 } : { rotate: 0, top: 4, left: 0 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        />
+                        <motion.span
+                            style={{
+                                position: "absolute",
+                                left: 0,
+                                width: 24,
+                                height: 3,
+                                borderRadius: 2,
+                                background: "white",
+                                display: "block",
+                            }}
+                            animate={isOpen ? { opacity: 1, rotate: 0, top: 10.5, left: 0 } : { opacity: 1, rotate: 0, top: 10.5, left: 0 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        />
+                        <motion.span
+                            style={{
+                                position: "absolute",
+                                left: 0,
+                                width: 24,
+                                height: 3,
+                                borderRadius: 2,
+                                background: "white",
+                                display: "block",
+                            }}
+                            animate={isOpen ? { rotate: 0, top: 10.5, left: 0 } : { rotate: 0, top: 17, left: 0 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        />
+                    </motion.div>
                 </motion.div>
             </header>
 
@@ -108,7 +151,7 @@ export default function MobileNavbar({ navItems }: {
                         }}
                         className="cursor-pointer mt-8"
                     >
-                        <Button className='glass text-sm font-semibold inline-flex items-center justify-center !rounded-md after:!rounded-md px-3 py-2 text-white shadow-sm hover:opacity-85 transition duration-200 hover:cursor-pointer'>Get Early Access</Button>
+                        <Button className='purple-glass text-sm font-semibold inline-flex items-center justify-center !rounded-md after:!rounded-md px-3 py-2 text-white shadow-sm hover:opacity-85 transition duration-200 hover:cursor-pointer'>Get Early Access</Button>
                     </motion.div>
                 </motion.div>
             </motion.nav>

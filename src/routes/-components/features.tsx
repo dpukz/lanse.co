@@ -34,19 +34,19 @@ export default function Features() {
         }
       `}</style>
 
-            <div className="absolute top-1/2 left-1/2 w-[85vw] md:w-[70vw] max-w-[500px] aspect-square bg-purple-600/25 rounded-full blur-3xl animate-[move-sideways_15s_ease-in-out_infinite]"></div>
+            <div className="absolute top-1/2 left-1/2 w-[85vw] md:w-[70vw] max-w-3xl aspect-square bg-purple-600/15 rounded-full blur-3xl animate-[move-sideways_15s_ease-in-out_infinite]"></div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4">
+            <div className="relative z-10 max-w-6xl mx-auto px-4">
                 <h2 className="text-4xl font-bold mb-6">Key Features</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-white/10 mx-4">
                     {featureData.map((feature, index) => {
                         return (
                             <div
                                 key={index}
-                                className="bg-white/5 p-7 border-r border-b border-white/10 transition-all duration-200 hover:bg-white/10"
+                                className="bg-white/5 py-5 px-4 border-r border-b border-white/10 transition-all duration-200 hover:bg-white/10"
                             >
                                 <feature.icon size={28} className="mx-auto mb-4 text-purple-400" />
-                                <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>
+                                <h3 className="mb-2 text-lg font-semibold">{feature.title}</h3>
                                 <p className="text-base text-white/75">{feature.description}</p>
                             </div>
                         );

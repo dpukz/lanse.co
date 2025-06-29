@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
 import Hero from './-components/hero';
-import Reserve from './-components/reserve';
 import Features from './-components/features';
 import Video from './-components/video';
 import Ease from './-components/ease';
@@ -14,10 +13,9 @@ function App() {
   return (
     <main>
       <Hero />
-      <Reserve />
+      <Ease />
       <Features />
       <Video />
-      <Ease />
       <Email />
     </main>
   );

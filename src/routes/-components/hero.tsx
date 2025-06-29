@@ -84,8 +84,8 @@ export function Hero3D() {
             globeGroup.add(ring);
         }
 
-        // const globeScale = window.innerWidth < 768 ? 0.7 : 0.9;
-        const globeScale = 0.9;
+        const globeScale = window.innerWidth < 768 ? 1.1 : 1.2;
+        // const globeScale = 0.9;
         globeGroup.scale.set(globeScale, globeScale, globeScale);
         scene.add(globeGroup);
 
@@ -133,16 +133,25 @@ export default function Hero() {
         <div
             className="relative w-full h-screen text-white"
         >
+            <div
+                className='md:hidden pointer-events-none absolute -bottom-1/5 left-1/2 -translate-x-1/2 w-[140%] h-[140%] z-0 opacity-80'
+                aria-hidden='true'
+                style={{
+                    background:
+                        'radial-gradient(circle, rgba(124,58,200,0.35), transparent 75%)',
+                    filter: 'blur(120px)',
+                }}
+            />
             <div className="absolute left-[calc(50%-8rem)] top-1/2 max-w-lg -translate-x-1/2 -translate-y-28 sm:-translate-y-36 lg:-translate-y-56 blur-xl lg:blur-3xl opacity-70">
-                <div className="absolute -left-10 top-10 h-40 w-40 animate-blob rounded-full bg-purple-600 mix-blend-multiply blur-xl filter sm:h-60 sm:w-60 lg:-left-32 lg:-top-12 lg:h-96 lg:w-96 lg:blur-2xl"></div>
-                <div className="delay-2000 absolute left-32 top-0 h-40 w-40 animate-blob rounded-full bg-purple-700 mix-blend-multiply blur-xl filter sm:h-60 sm:w-60 lg:left-72 lg:-top-32 lg:h-96 lg:w-96 lg:blur-2xl"></div>
-                <div className="delay-4000 absolute left-10 top-16 h-40 w-40 animate-blob rounded-full bg-purple-500 blur-xl filter sm:h-60 sm:w-60 lg:left-10 lg:top-48 lg:h-96 lg:w-96 lg:blur-2xl"></div>
+                <div className="absolute -left-20 md:-left-10 top-28 md:top-10 size-44 md:size-40 animate-blob rounded-full bg-purple-600 mix-blend-multiply blur-xl filter sm:h-60 sm:w-60 lg:-left-32 lg:-top-12 lg:h-96 lg:w-96 lg:blur-2xl"></div>
+                <div className="delay-2000 absolute left-32 -top-5 md:top-0 size-44 md:size-40 animate-blob rounded-full bg-purple-700 mix-blend-multiply blur-xl filter sm:h-60 sm:w-60 lg:left-72 lg:-top-32 lg:h-96 lg:w-96 lg:blur-2xl"></div>
+                <div className="delay-4000 absolute left-5 md:left-10 top-48 md:top-16 size-44 md:size-40 animate-blob rounded-full bg-purple-500 blur-xl filter sm:h-60 sm:w-60 lg:left-10 lg:top-48 lg:h-96 lg:w-96 lg:blur-2xl"></div>
             </div>
             <Hero3D />
             <div className="relative z-0 flex flex-col items-center justify-center h-full text-center px-4 -mt-[5vh]">
-                <button className="glass mb-4 px-4 py-2 text-md font-medium shadow focus:outline-none focus:ring-none">
+                <div className="glass mb-4 px-4 py-2 text-md font-medium shadow focus:outline-none focus:ring-none">
                     Try Lanse AI Co-Pilot
-                </button>
+                </div>
                 <h1 className="text-4xl md:text-6xl font-semibold">An AI Co-Pilot for Every Car</h1>
                 <p className="mt-4 text-md text-purple-200 max-w-xl">
                     Advanced driver assistance that integrates with the car you already own.

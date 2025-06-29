@@ -34,7 +34,7 @@ function RouteComponent() {
     ];
 
     return (
-        <div className="bg-black text-white pt-32">
+        <div className="text-white pt-6 md:pt-32">
             <section className="py-20 text-center">
                 <div className="max-w-7xl mx-auto px-4">
                     <h1 className="text-5xl font-bold mb-4">Meet the Team</h1>
@@ -42,6 +42,8 @@ function RouteComponent() {
                     <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {teamMembers.map((member, index) => (
                             <div key={index} className="bg-white/5 backdrop-blur-md p-8 rounded-lg border border-white/10 transition-all duration-300 hover:border-purple-400 hover:bg-white/10 hover:scale-105">
+                                <div className="absolute w-full h-full max-w-md bg-purple-800/20 rounded-full blur-3xl"></div>
+
                                 <div className="mx-auto mb-4 inline-flex items-center justify-center p-4 bg-purple-500/10 rounded-full">
                                     <member.icon size={32} className="text-purple-400" />
                                 </div>
