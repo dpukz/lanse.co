@@ -17,7 +17,7 @@ export default function Footer() {
                     <div>
                         <h4 className="font-semibold text-white/80 tracking-wider uppercase text-sm">Links</h4>
                         <ul className="mt-4 space-y-2">
-                            <li><Link resetScroll={false} to="/" className="text-sm text-white/60 hover:text-white transition-colors">Home</Link></li>
+                            <li><Link to="/" className="text-sm text-white/60 hover:text-white transition-colors">Home</Link></li>
                             <li>
                                 <button
                                     className="text-sm text-white/60 hover:text-white transition-colors cursor-pointer"
@@ -34,9 +34,9 @@ export default function Footer() {
                                     Early Access
                                 </button>
                             </li>
-                            <li><Link resetScroll={false} to="/product" className="text-sm text-white/60 hover:text-white transition-colors">Product</Link></li>
-                            <li><Link resetScroll={false} to="/blog" className="text-sm text-white/60 hover:text-white transition-colors">Blog</Link></li>
-                            <li><Link resetScroll={false} to="/about" className="text-sm text-white/60 hover:text-white transition-colors">About</Link></li>
+                            <li><Link to="/product" className="text-sm text-white/60 hover:text-white transition-colors">Product</Link></li>
+                            <li><Link to="/blog" className="text-sm text-white/60 hover:text-white transition-colors">Blog</Link></li>
+                            <li><Link to="/about" className="text-sm text-white/60 hover:text-white transition-colors">About</Link></li>
                         </ul>
                     </div>
 
@@ -51,8 +51,8 @@ export default function Footer() {
                     <div>
                         <h4 className="font-semibold text-white/80 tracking-wider uppercase text-sm">Legal</h4>
                         <ul className="mt-4 space-y-2">
-                            <li><Link resetScroll={false} to="/privacy-policy" className="text-sm text-white/60 hover:text-white transition-colors">Privacy Policy</Link></li>
-                            <li><Link resetScroll={false} to="/terms" className="text-sm text-white/60 hover:text-white transition-colors">Terms of Service</Link></li>
+                            <li><Link to="/privacy-policy" className="text-sm text-white/60 hover:text-white transition-colors">Privacy Policy</Link></li>
+                            <li><Link to="/terms" className="text-sm text-white/60 hover:text-white transition-colors">Terms of Service</Link></li>
                         </ul>
                     </div>
                 </div>

@@ -11,10 +11,10 @@ import reportWebVitals from './reportWebVitals.ts'
 // Create a new router instance
 const router = createRouter({
   routeTree,
-  context: {},
   defaultPreload: 'intent',
+  scrollRestoration: false,
   defaultStructuralSharing: true,
-  defaultHashScrollIntoView: { behavior: "smooth" }
+  defaultHashScrollIntoView: { behavior: "smooth" },
 })
 
 // Register the router instance for type safety
