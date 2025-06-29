@@ -11,25 +11,25 @@ function RouteComponent() {
             name: 'Jeremy Liu',
             role: 'Founder & CEO',
             icon: UserSquare,
-            description: 'Guides company vision, strategy, and leadership.',
+            description: 'Set and execute company vision, oversee product development/operations, build the Lanse team, and lead R&D software/hardware efforts',
         },
         {
             name: 'Sanatan M.',
             role: 'Software Engineer',
             icon: Server,
-            description: 'Architects scalable AI infrastructure and backend systems.',
+            description: 'Architects the Lanse pathfinding, post-processing, and general backend systems.',
         },
         {
             name: 'Lior P.',
             role: 'Software Engineer',
             icon: Layers,
-            description: 'Develops AI infrastructure and manages the web platform.',
+            description: 'Develops control-theory based adaptive cruise control and manages the web platform.',
         },
         {
             name: 'Bryson C.',
             role: 'Software Engineer',
             icon: GaugeCircle,
-            description: 'Focuses on performance optimization and advanced AI engineering.',
+            description: 'Focuses on performance optimization and feature engineering.',
         },
     ];
 
