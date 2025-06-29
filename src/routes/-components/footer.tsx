@@ -19,8 +19,7 @@ export default function Footer() {
                         <ul className="mt-4 space-y-2">
                             <li><Link to="/" className="text-sm text-white/60 hover:text-white transition-colors">Home</Link></li>
                             <li>
-                                <Link
-                                    to="/#early-access"
+                                <button
                                     className="text-sm text-white/60 hover:text-white transition-colors cursor-pointer"
                                     onClick={(e) => {
                                         if (window.location.pathname === "/") {
@@ -33,7 +32,7 @@ export default function Footer() {
                                     }}
                                 >
                                     Early Access
-                                </Link>
+                                </button>
                             </li>
                             <li><Link to="/product" className="text-sm text-white/60 hover:text-white transition-colors">Product</Link></li>
                             <li><Link to="/blog" className="text-sm text-white/60 hover:text-white transition-colors">Blog</Link></li>

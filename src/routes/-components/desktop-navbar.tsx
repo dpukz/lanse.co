@@ -28,8 +28,7 @@ export default function DesktopNavbar({ navItems }: {
                         ))}
                     </div>
 
-                    <Link
-                        to="/#early-access"
+                    <button
                         className='purple-glass !bg-[rgba(48,16,80,0.85)] w-auto text-sm font-semibold inline-flex items-center justify-end !rounded-md after:!rounded-md px-3 py-2 text-white shadow-sm hover:opacity-85 transition duration-200 hover:cursor-pointer ml-auto'
                         onClick={(e) => {
                             if (window.location.pathname === "/") {
@@ -42,7 +41,7 @@ export default function DesktopNavbar({ navItems }: {
                         }}
                     >
                         Get Early Access
-                    </Link>
+                    </button>
                 </div>
             </div>
         </nav>
